@@ -3,8 +3,10 @@ package com.ivanledakovich;
 public class Main {
 
     public static void main(String[] args) {
-        Help.help(args[0]);
-        ArgumentsParser.parseArguments(args);
+        Parameters parameters = ArgumentsParser.parseArguments(args);
+        for (int i = 0; i < parameters.getAllTextFilePaths().size(); i++) {
+            Thread.startANewThread(parameters.getImageFileType(), parameters.getImageSaveLocation(), parameters.getSingleTextFilePath(i));
+        }
     }
 }
 
