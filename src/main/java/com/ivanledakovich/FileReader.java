@@ -12,9 +12,7 @@ import java.nio.charset.StandardCharsets;
  * This class contains methods for reading files
  *
  * @author Ivan Ledakovich
- *
  */
-
 public class FileReader {
 
     /**
@@ -22,11 +20,7 @@ public class FileReader {
      *
      * @param filePath String, containing path to base file
      * @return file data in form of a String
-     *
-     * @author Ivan Ledakovich
-     *
      */
-
     public static String readFile(String filePath){
         String data = "";
         FileInputStream fileInputStream;

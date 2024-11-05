@@ -4,18 +4,12 @@ package com.ivanledakovich;
  * This class contains the method which prints out the user manual in the terminal
  *
  * @author Ivan Ledakovich
- *
  */
-
 public class Help {
 
     /**
      * This method prints out user's manual in terminal
-     *
-     * @author Ivan Ledakovich
-     *
      */
-
     public static void help () {
         System.out.println(" The program must be provided with 3 arguments in any order:\n" +
                 "   1. \"--file-type\" + Image type (\"png\", \"jpg\", etc.)\n" +

@@ -7,9 +7,7 @@ import java.util.List;
  * This class contains methods to parse command line arguments
  *
  * @author Ivan Ledakovich
- *
  */
-
 public class ArgumentsParser {
 
     /**
@@ -17,11 +15,7 @@ public class ArgumentsParser {
      *
      * @param args command line arguments
      * @return command line arguments in form of a structured object of class Parameters
-     *
-     * @author Ivan Ledakovich
-     *
      */
-
     public static Parameters parseArguments(String[] args) {
 
         Parameters parameters = new Parameters();
@@ -49,26 +43,22 @@ public class ArgumentsParser {
     }
 
     /**
-     * This method converts command line .txt file paths into a List of Strings
+     * This method converts command line file paths into a List of Strings
      *
      * @param args command line arguments
      * @param currentArgumentIndex current argument index in command line
-     * @return List of .txt file paths
-     *
-     * @author Ivan Ledakovich
-     *
+     * @return List of file paths
      */
-
     private static List<String> parseFilePaths(String[] args, int currentArgumentIndex) {
-        List<String> textFilePaths = new ArrayList<String>();
+        List<String> filePaths = new ArrayList<String>();
 
         for (int i = currentArgumentIndex + 1; i < args.length; i++) {
             if (args[i].contains("--")) {
                 break;
             } else {
-                textFilePaths.add(args[i]);
+                filePaths.add(args[i]);
             }
         }
-        return textFilePaths;
+        return filePaths;
     }
 }
