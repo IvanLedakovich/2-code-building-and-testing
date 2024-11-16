@@ -37,7 +37,6 @@ public class Thread extends java.lang.Thread {
      * @param textFilePath the path to the initial .txt file
      */
     public static void startANewThread(String imageFileType, String imageSaveLocation, String textFilePath) {
-
             Thread thread = new Thread(imageFileType, imageSaveLocation, textFilePath);
             thread.start();
     }

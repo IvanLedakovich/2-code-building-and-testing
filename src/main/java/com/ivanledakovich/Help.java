@@ -1,5 +1,7 @@
 package com.ivanledakovich;
 
+import org.apache.log4j.Logger;
+
 /**
  * This class contains the method which prints out the user manual in the terminal
  *
@@ -7,11 +9,13 @@ package com.ivanledakovich;
  */
 public class Help {
 
+    static Logger logger = Logger.getLogger(FileReader.class);
+
     /**
      * This method prints out user's manual in terminal
      */
     public static void help () {
-        System.out.println(" The program must be provided with 3 arguments in any order:\n" +
+        logger.info(" The program must be provided with 3 arguments in any order:\n" +
                 "   1. \"--file-type\" + Image type (\"png\", \"jpg\", etc.)\n" +
                 "   2. \"--save-location\" + Image save destination (e.g. \"D:\\Games\")\n" +
                 "   3. \"--file-path\" + Initial .txt files separated by space (e.g. \"D:\\test.txt\" \"D:\\test1.txt\" etc.)\n" +
