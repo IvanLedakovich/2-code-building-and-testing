@@ -27,7 +27,7 @@ public class ImageWriter {
         try {
             ImageIO.write(image, imageFileType, new File(imageSaveLocation + "\\" + textFilePath.substring(textFilePath.lastIndexOf("\\")+1) + "." + imageFileType));
         } catch (IOException e) {
-            logger.info("Could not write image!");
+            logger.error(e);
         }
     }
 }
