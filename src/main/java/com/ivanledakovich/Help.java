@@ -21,7 +21,7 @@ public class Help {
                 "   3. \"--file-path\" + Initial .txt files separated by space (e.g. \"D:\\test.txt\" \"D:\\test1.txt\" etc.)\n" +
                 "   The full command could look like this:\n" +
                 "   \n" +
-                "   java Main \"--file-type\" \"png\" \"--save-location\" \"D:\\Games\" \"--file-path\" \"D:\\test.txt\" \"D:\\test1.txt\" \"D:\\test2.txt");
+                "   java -jar build\\libs\\2-code-building-and-testing.jar \"--file-type\" \"png\" \"--save-location\" \"D:\\Games\" \"--file-path\" \"D:\\test.txt\" \"D:\\test1.txt\" \"D:\\test2.txt");
         System.exit(0);
     }
 }
