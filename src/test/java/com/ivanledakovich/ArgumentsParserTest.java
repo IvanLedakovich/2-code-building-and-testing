@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class ArgumentsParserTest {
 
     @Test
-    public void verifyArgumentsParseCorrectly () {
+    public void verifyArgumentsParseCorrectly() {
         // given
         Parameters expectedResult = new Parameters();
         expectedResult.setImageFileType("png");
