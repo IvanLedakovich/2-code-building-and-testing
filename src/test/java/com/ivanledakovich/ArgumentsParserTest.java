@@ -9,7 +9,6 @@ public class ArgumentsParserTest {
 
     @Test
     public void verifyArgumentsParseCorrectly () {
-
         // given
         Parameters expectedResult = new Parameters();
         expectedResult.setImageFileType("png");
@@ -23,7 +22,6 @@ public class ArgumentsParserTest {
         assertEquals(expectedResult.getImageFileType(), actualResult.getImageFileType());
         assertEquals(expectedResult.getImageSaveLocation(), actualResult.getImageSaveLocation());
         assertEquals(expectedResult.getAllTextFilePaths(), actualResult.getAllTextFilePaths());
-
     }
 
 }
