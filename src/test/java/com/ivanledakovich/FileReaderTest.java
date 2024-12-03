@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class FileReaderTest {
 
     @Test
-    public void verifyNoExceptionThrown () {
+    public void verifyExceptionIsThrown () {
         assertThrows(RuntimeException.class, () -> {
             FileReader.readFile("");
         });
