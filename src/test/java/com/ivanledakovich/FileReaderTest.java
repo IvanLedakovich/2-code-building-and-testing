@@ -13,4 +13,15 @@ public class FileReaderTest {
         });
     }
 
+    @Test
+    public void verifyTheFilesAreReadCorrectly () {
+    // given
+    String data = "";
+
+    // when
+    data = FileReader.readFile("D:\\\\test.txt");
+
+    // then
+    assertEquals(data, "test .txt file");
+    }
 }
