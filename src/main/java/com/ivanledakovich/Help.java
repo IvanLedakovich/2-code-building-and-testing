@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
  */
 public class Help {
 
-    static final private Logger logger = Logger.getLogger(FileReader.class);
+    static final private Logger logger = Logger.getLogger(Help.class);
 
     /**
      * This method prints out user's manual in terminal
