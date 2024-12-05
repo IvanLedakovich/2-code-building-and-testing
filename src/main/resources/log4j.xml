@@ -28,11 +28,6 @@
         </layout>
     </appender>
 
-    <logger name="com.yourcompany.SomeClass" additivity="false">
-        <level value="debug" />
-        <appender-ref ref="another.file" />
-    </logger>
-
     <root>
         <priority value="info" />
         <appender-ref ref="default.console" />
