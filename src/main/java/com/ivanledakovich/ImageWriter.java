@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
  */
 public class ImageWriter {
 
-    static Logger logger = Logger.getLogger(ImageWriter.class);
+    static final private Logger logger = Logger.getLogger(ImageWriter.class);
 
     /**
      * This method writes the final image file

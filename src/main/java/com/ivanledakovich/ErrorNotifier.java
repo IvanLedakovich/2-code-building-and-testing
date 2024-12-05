@@ -3,7 +3,7 @@ package com.ivanledakovich;
 import org.apache.log4j.Logger;
 
 public class ErrorNotifier {
-    static Logger logger = Logger.getLogger(FileReader.class);
+    static final private Logger logger = Logger.getLogger(FileReader.class);
 
     public static void invalidInputFilesNotification(){
         logger.info("Please check if the input file(s) are valid, of .txt format and not empty.");

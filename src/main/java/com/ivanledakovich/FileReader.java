@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 public class FileReader {
 
-    static Logger logger = Logger.getLogger(FileReader.class);
+    static final private Logger logger = Logger.getLogger(FileReader.class);
 
     /**
      * This method receives file path and returns the file in form of a String
