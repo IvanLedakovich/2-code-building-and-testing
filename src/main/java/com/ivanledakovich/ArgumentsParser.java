@@ -21,8 +21,9 @@ public class ArgumentsParser {
         Parameters parameters = new Parameters();
 
         for (int i = 0; i < args.length; i++) {
-            if(args[i].equals("--help")){
+            if(args[i].equalsIgnoreCase("--help") || args[i].equalsIgnoreCase("help")){
                 Help.help();
+                SystemExit.systemExit(0);
             }
             if (args[i].equalsIgnoreCase("--file-type")) {
                 parameters.setImageFileType(args[i + 1]);
@@ -34,7 +35,16 @@ public class ArgumentsParser {
                 parameters.setTextFilePaths(parseFilePaths(args, i));
             }
         }
-        return parameters;
+
+        if(parameters.getImageFileType() == null || parameters.getImageSaveLocation() == null || parameters.getAllTextFilePaths() == null){
+            Help.help();
+            throw new IllegalArgumentException();
+        }
+
+        if(!(parameters.getImageFileType().equalsIgnoreCase("png") || parameters.getImageFileType().equalsIgnoreCase("jpg"))){
+            ErrorNotifier.invalidFileTypeNotification();
+        }
+            return parameters;
     }
 
     /**

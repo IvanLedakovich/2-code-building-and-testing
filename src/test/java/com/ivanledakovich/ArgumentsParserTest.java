@@ -2,7 +2,7 @@ package com.ivanledakovich;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import java.io.IOException;
 import java.util.Arrays;
 
 public class ArgumentsParserTest {
@@ -24,4 +24,12 @@ public class ArgumentsParserTest {
         assertEquals(expectedResult.getAllTextFilePaths(), actualResult.getAllTextFilePaths());
     }
 
+    @Test
+    public void verifyHelpIsShownWhenNoArgumentIsProvided() throws IOException, InterruptedException {
+        // given
+        var args = new String[] {"--file-path", "D:\\\\test.txt", "--save-location", "D:\\\\Games"};
+
+        // then
+        assertThrows(IllegalArgumentException.class, () -> ArgumentsParser.parseArguments(args));
+    }
 }

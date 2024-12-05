@@ -3,7 +3,6 @@ package com.ivanledakovich;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.junit.Rule;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,11 +10,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.rules.TemporaryFolder;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 
 public class MainTest {
 
@@ -29,7 +27,7 @@ public class MainTest {
 
 
     @Test
-    public void testOutputFileExists() throws IOException, InterruptedException {
+    public void verifyTestOutputFileExists() throws IOException, InterruptedException {
         // given
         File testInputFile = File.createTempFile("test", ".txt", new File(testInputFolder.getRoot().getPath()));
         FileUtils.write(testInputFile, "test", StandardCharsets.UTF_8);
@@ -43,7 +41,7 @@ public class MainTest {
     }
 
     @Test
-    public void testOutputResultIsCorrect() throws IOException, InterruptedException {
+    public void verifyTestOutputResultIsCorrect() throws IOException, InterruptedException {
         // given
         File testInputFile = File.createTempFile("test", ".txt", new File(testInputFolder.getRoot().getPath()));
         FileUtils.write(testInputFile, "test", StandardCharsets.UTF_8);
@@ -53,6 +51,22 @@ public class MainTest {
         lock.await(2000, TimeUnit.MILLISECONDS);
         Path outputFilePath = Path.of(testOutputFolder.getRoot().getPath() + "\\" + testInputFile.getName() + ".png");
         Path controlSampleFilePath = Path.of("C:\\Battlefield\\control-sample.png");
+
+        // then
+        assertEquals(-1, Files.mismatch(outputFilePath, controlSampleFilePath));
+    }
+
+    @Test
+    public void verifyArgumentsCasingHasNoEffect() throws IOException, InterruptedException {
+        // given
+        File testInputFile = File.createTempFile("TEST", ".TXT", new File(testInputFolder.getRoot().getPath()));
+        FileUtils.write(testInputFile, "test", StandardCharsets.UTF_8);
+
+        // when
+        Main.main(new String[] {"--FILE-TYPE", "PNG", "--FILE-PATH", testInputFile.getPath(), "--SAVE-LOCATION", testOutputFolder.getRoot().getPath()});
+        lock.await(2000, TimeUnit.MILLISECONDS);
+        Path outputFilePath = Path.of(testOutputFolder.getRoot().getPath() + "\\" + testInputFile.getName() + ".PNG");
+        Path controlSampleFilePath = Path.of("c:\\bATTLEFIELD\\CONTROL-SAMPLE.PNG");
 
         // then
         assertEquals(-1, Files.mismatch(outputFilePath, controlSampleFilePath));

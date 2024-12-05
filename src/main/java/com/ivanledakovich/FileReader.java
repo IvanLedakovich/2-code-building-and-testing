@@ -26,6 +26,7 @@ public class FileReader {
         try {
             data = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);
         } catch (IOException e) {
+            ErrorNotifier.invalidInputFilesNotification();
             throw new RuntimeException(e);
         }
         logger.info(data);

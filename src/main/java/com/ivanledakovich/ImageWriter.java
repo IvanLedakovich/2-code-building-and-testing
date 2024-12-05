@@ -4,6 +4,9 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -25,9 +28,12 @@ public class ImageWriter {
      */
     public static void writeImage(BufferedImage image, String imageFileType, String imageSaveLocation, String textFilePath){
         try {
+            if(!Files.exists(Path.of(imageSaveLocation))) throw new IOException();
             ImageIO.write(image, imageFileType, new File(imageSaveLocation + "\\" + textFilePath.substring(textFilePath.lastIndexOf("\\")+1) + "." + imageFileType));
         } catch (IOException e) {
+            ErrorNotifier.fileCouldNotBeWritten();
             logger.error(e);
+            SystemExit.systemExit(0);
         }
     }
 }
