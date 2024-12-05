@@ -29,7 +29,7 @@ public class FileReader {
             ErrorNotifier.invalidInputFilesNotification();
             throw new RuntimeException(e);
         }
-        logger.info(data);
+        System.out.println(data);
         return data;
     }
 }

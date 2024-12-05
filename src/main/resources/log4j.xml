@@ -10,6 +10,12 @@
         </layout>
     </appender>
 
+    <appender name="raw.console" class="org.apache.log4j.ConsoleAppender">
+        <param name="target" value="System.out" />
+        <param name="threshold" value="debug" />
+
+    </appender>
+
     <appender name="default.file" class="org.apache.log4j.FileAppender">
         <param name="file" value="/log/mylogfile.log" />
         <param name="append" value="false" />
@@ -33,4 +39,6 @@
         <appender-ref ref="default.console" />
         <appender-ref ref="default.file" />
     </root>
+
+
 </log4j:configuration>

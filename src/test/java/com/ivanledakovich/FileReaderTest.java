@@ -7,14 +7,14 @@ import static org.junit.Assert.*;
 public class FileReaderTest {
 
     @Test
-    public void verifyExceptionIsThrown () {
+    public void verifyExceptionIsThrown() {
         assertThrows(RuntimeException.class, () -> {
             FileReader.readFile("");
         });
     }
 
     @Test
-    public void verifyTheFilesAreReadCorrectly () {
+    public void verifyTheFilesAreReadCorrectly() {
     // given
     String data = "";
 

@@ -11,11 +11,12 @@ public class Help {
 
     static final private Logger logger = Logger.getLogger(Help.class);
 
+
     /**
      * This method prints out user's manual in terminal
      */
-    public static void help () {
-        logger.info(" The program must be provided with 3 arguments in any order:\n" +
+    public static void help() {
+        System.out.println(" The program must be provided with 3 arguments in any order:\n" +
                 "   1. \"--file-type\" + Image type (\"png\", \"jpg\", etc.)\n" +
                 "   2. \"--save-location\" + Image save destination (e.g. \"D:\\Games\")\n" +
                 "   3. \"--file-path\" + Initial .txt files separated by space (e.g. \"D:\\test.txt\" \"D:\\test1.txt\" etc.)\n" +
