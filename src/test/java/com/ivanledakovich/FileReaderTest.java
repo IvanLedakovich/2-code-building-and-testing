@@ -19,7 +19,7 @@ public class FileReaderTest {
     String data = "";
 
     // when
-    data = FileReader.readFile("D:\\\\test.txt");
+    data = FileReader.readFile("files/test.txt");
 
     // then
     assertEquals(data, "test .txt file");

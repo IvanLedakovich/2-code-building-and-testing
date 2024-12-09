@@ -27,7 +27,7 @@ public class ArgumentsParserTest {
     @Test
     public void verifyHelpIsShownWhenNoArgumentIsProvided() throws IOException, InterruptedException {
         // given
-        var args = new String[] {"--file-path", "D:\\\\test.txt", "--save-location", "D:\\\\Games"};
+        var args = new String[] {"--file-path", "files/test.txt", "--save-location", "files/saveLocationForTests"};
 
         // then
         assertThrows(IllegalArgumentException.class, () -> ArgumentsParser.parseArguments(args));

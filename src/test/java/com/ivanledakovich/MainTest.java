@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.junit.rules.TemporaryFolder;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -27,7 +28,7 @@ public class MainTest {
 
 
     @Test
-    public void verifyTestOutputFileExists() throws IOException, InterruptedException {
+    public void verifyTestOutputFileExists() throws Exception {
         // given
         File testInputFile = File.createTempFile("test", ".txt", new File(testInputFolder.getRoot().getPath()));
         FileUtils.write(testInputFile, "test", StandardCharsets.UTF_8);
@@ -50,7 +51,7 @@ public class MainTest {
         Main.main(new String[] {"--file-type", "png", "--file-path", testInputFile.getPath(), "--save-location", testOutputFolder.getRoot().getPath()});
         lock.await(2000, TimeUnit.MILLISECONDS);
         Path outputFilePath = Path.of(testOutputFolder.getRoot().getPath() + "\\" + testInputFile.getName() + ".png");
-        Path controlSampleFilePath = Path.of("C:\\Battlefield\\control-sample.png");
+        Path controlSampleFilePath = Path.of("files/control-sample.png");
 
         // then
         assertEquals(-1, Files.mismatch(outputFilePath, controlSampleFilePath));
@@ -66,7 +67,7 @@ public class MainTest {
         Main.main(new String[] {"--FILE-TYPE", "PNG", "--FILE-PATH", testInputFile.getPath(), "--SAVE-LOCATION", testOutputFolder.getRoot().getPath()});
         lock.await(2000, TimeUnit.MILLISECONDS);
         Path outputFilePath = Path.of(testOutputFolder.getRoot().getPath() + "\\" + testInputFile.getName() + ".PNG");
-        Path controlSampleFilePath = Path.of("c:\\bATTLEFIELD\\CONTROL-SAMPLE.PNG");
+        Path controlSampleFilePath = Path.of("files/control-sample.png");
 
         // then
         assertEquals(-1, Files.mismatch(outputFilePath, controlSampleFilePath));
