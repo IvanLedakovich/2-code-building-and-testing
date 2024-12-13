@@ -3,6 +3,7 @@ package com.ivanledakovich;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Arrays;
 
 public class ArgumentsParserTest {
@@ -27,7 +28,15 @@ public class ArgumentsParserTest {
     @Test
     public void verifyHelpIsShownWhenNoArgumentIsProvided() throws IOException, InterruptedException {
         // given
-        var args = new String[] {"--file-path", "files/test.txt", "--save-location", "files/saveLocationForTests"};
+        String data = "";
+        String fileName = "test.txt";
+        String saveFolderName = "saveLocationForTests";
+        ClassLoader classLoader = getClass().getClassLoader();
+        URL resource = classLoader.getResource(fileName);
+        URL saveFolderURL = classLoader.getResource(saveFolderName);
+        assert resource != null;
+        String path = resource.getPath();
+        var args = new String[] {"--file-path", path, "--save-location", String.valueOf(saveFolderURL)};
 
         // then
         assertThrows(IllegalArgumentException.class, () -> ArgumentsParser.parseArguments(args));
